@@ -3,6 +3,20 @@ local M = {
   event = "VeryLazy",
 }
 
+local function on_attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+end
+
 function M.config()
   local wk = require "which-key"
   wk.register {
@@ -90,6 +104,7 @@ function M.config()
         error = icons.diagnostics.BoldError,
       },
     },
+    on_attach = on_attach
   }
 end
 
