@@ -14,7 +14,8 @@ local function on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- custom mappings
-  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+  vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "h", api.node.navigate.parent_close, opts "Close Directory")
 end
 
 function M.config()
@@ -104,7 +105,7 @@ function M.config()
         error = icons.diagnostics.BoldError,
       },
     },
-    on_attach = on_attach
+    on_attach = on_attach,
   }
 end
 

@@ -5,6 +5,7 @@ local M = {
 function M.config()
   local mappings = {
     w = { "<cmd>w!<CR>", "Save" },
+    c = { "<cmd>BufDel<CR>", "Close Buffer" },
     q = { "<cmd>confirm q<CR>", "Quit" },
     h = { "<cmd>nohlsearch<CR>", "NOHL" },
     [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
