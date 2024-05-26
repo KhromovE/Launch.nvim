@@ -12,7 +12,6 @@ function M.config()
     setopt = true,
     relculright = true,
     segments = {
-
       { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa", hl = "Comment" },
 
       { text = { "%s" }, click = "v:lua.ScSa" },

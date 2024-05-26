@@ -9,8 +9,8 @@ local M = {
     "LazyGitFilterCurrentFile",
   },
   dependencies = {
-    "akinsho/toggleterm.nvim" 
-  }
+    "akinsho/toggleterm.nvim",
+  },
 }
 
 function M.config()
@@ -39,7 +39,6 @@ function M.config()
   wk.register {
     ["<leader>gg"] = { lazygit_toggle, "LazyGit" },
   }
-
 end
 
 return M

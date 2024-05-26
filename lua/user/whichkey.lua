@@ -3,12 +3,11 @@ local M = {
 }
 
 function M.config()
-  local mappings = {
+  local n_mappings = {
     w = { "<cmd>w!<CR>", "Save" },
     c = { "<cmd>BufDel<CR>", "Close Buffer" },
     q = { "<cmd>confirm q<CR>", "Quit" },
     h = { "<cmd>nohlsearch<CR>", "NOHL" },
-    -- [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
     v = { "<cmd>vsplit<CR>", "Split" },
     b = { name = "Buffers" },
     d = { name = "Debug" },
@@ -26,6 +25,10 @@ function M.config()
       l = { "<cmd>+tabmove<cr>", "Move Right" },
     },
     T = { name = "Treesitter" },
+  }
+
+  local v_mappings = {
+    g = { name = "Git" },
   }
 
   local which_key = require "which-key"
@@ -61,12 +64,18 @@ function M.config()
     },
   }
 
-  local opts = {
+  local n_opts = {
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
   }
 
-  which_key.register(mappings, opts)
+  local v_opts = {
+    mode = "v", -- VISUAL mode
+    prefix = "<leader>",
+  }
+
+  which_key.register(n_mappings, n_opts)
+  which_key.register(v_mappings, v_opts)
 end
 
 return M

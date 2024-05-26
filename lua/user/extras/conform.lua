@@ -26,6 +26,7 @@ function M.config()
       javascript = { { "prettierd" } },
       typescript = { { "prettierd" } },
       json = { { "prettierd" } },
+      lua = { { "stylua" } },
     },
   }
 end
