@@ -23,7 +23,7 @@ M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
 
   if client.supports_method "textDocument/inlayHint" then
-    vim.lsp.inlay_hint.enable(bufnr, true)
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   end
 end
 
@@ -35,7 +35,7 @@ end
 
 M.toggle_inlay_hints = function()
   local bufnr = vim.api.nvim_get_current_buf()
-  vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled(bufnr))
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }, { bufnr = bufnr })
 end
 
 function M.config()
@@ -43,7 +43,7 @@ function M.config()
   wk.register {
     ["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     ["<leader>lf"] = {
-      "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
+      "<cmd>lua require('conform').format { async = true, lsp_fallback = false, bufnr = args.buf }<cr>",
       "Format",
     },
     ["<leader>li"] = { "<cmd>LspInfo<cr>", "Info" },
@@ -71,11 +71,14 @@ function M.config()
     "html",
     "tsserver",
     -- "eslint",
-    "tsserver",
     "pyright",
     "bashls",
     "jsonls",
     "yamlls",
+    "gopls",
+    "golangci_lint_ls",
+    "gdscript",
+    "rust_analyzer",
   }
 
   local default_diagnostic_config = {
@@ -125,6 +128,10 @@ function M.config()
 
     if server == "lua_ls" then
       require("neodev").setup {}
+    end
+
+    if server == "pyright" then
+      require "user.extras.python"
     end
 
     lspconfig[server].setup(opts)

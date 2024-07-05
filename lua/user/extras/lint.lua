@@ -7,8 +7,9 @@ function M.config()
   local lint = require "lint"
   lint.linters_by_ft = {
     markdown = { "markdownlint" },
-    typescript = { "eslint" },
+    typescript = { "eslint_d" },
     lua = { "luacheck" },
+    -- go = { "golangci-lint" },
   }
 
   -- To allow other plugins to add linters to require('lint').linters_by_ft,
