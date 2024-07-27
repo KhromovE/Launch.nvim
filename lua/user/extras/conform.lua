@@ -15,21 +15,17 @@ function M.config()
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-
-      local disable_filetypes = { c = true, cpp = true }
-      return {
-        lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-      }
+      return { lsp_fallback = true }
     end,
     formatters_by_ft = {
       -- Conform can also run multiple formatters sequentially
-      python = { "isort", "black" },
+      -- python = { "isort", "black" },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
-      javascript = { { "eslint_d" } },
-      typescript = { { "eslint_d" } },
-      -- json = { { "prettier" } },
+      javascript = { { "prettier" } },
+      typescript = { { "prettier" } },
+      json = { { "prettier" } },
       lua = { { "stylua" } },
     },
   }
