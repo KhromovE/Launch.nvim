@@ -12,7 +12,7 @@ local M = {
     "rouge8/neotest-rust",
     -- "lawrence-laz/neotest-zig",
     "rcasia/neotest-bash",
-    "nvim-neotest/nvim-nio"
+    "nvim-neotest/nvim-nio",
   },
 }
 
@@ -24,6 +24,7 @@ function M.config()
     ["<leader>td"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug Test" },
     ["<leader>ts"] = { "<cmd>lua require('neotest').run.stop()<cr>", "Test Stop" },
     ["<leader>ta"] = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Test" },
+    ["<leader>tS"] = { "<cmd>lua require('neotest').summary.open()<cr>", "Test Summary" },
   }
 
   ---@diagnostic disable: missing-fields

@@ -43,7 +43,7 @@ function M.config()
   wk.register {
     ["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     ["<leader>lf"] = {
-      "<cmd>lua require('conform').format { async = true, lsp_fallback = false, bufnr = args.buf }<cr>",
+      "<cmd>lua require('conform').format { async = true, lsp_fallback = false }<cr>",
       "Format",
     },
     ["<leader>li"] = { "<cmd>LspInfo<cr>", "Info" },
@@ -78,7 +78,6 @@ function M.config()
     "gopls",
     "golangci_lint_ls",
     "gdscript",
-    "rust_analyzer",
   }
 
   local default_diagnostic_config = {
