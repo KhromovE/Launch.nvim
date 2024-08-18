@@ -5,8 +5,13 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>lF"] = { "<cmd>ToggleFormat<cr>", "Toggle autoformat" },
+
+  wk.add {
+    {
+      "<leader>lF",
+      "<cmd>ToggleFormat<cr>",
+      desc = "Toggle autoformat",
+    },
   }
 
   require("conform").setup {
@@ -23,10 +28,10 @@ function M.config()
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
-      javascript = { { "prettier" } },
-      typescript = { { "prettier" } },
-      json = { { "prettier" } },
-      lua = { { "stylua" } },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      json = { "prettier" },
+      lua = { "stylua" },
     },
   }
 end

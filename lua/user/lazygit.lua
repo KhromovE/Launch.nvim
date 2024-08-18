@@ -36,8 +36,8 @@ function M.config()
     lazygit:toggle()
   end
 
-  wk.register {
-    ["<leader>gg"] = { lazygit_toggle, "LazyGit" },
+  wk.add {
+    { "<leader>gg", lazygit_toggle, desc = "LazyGit" },
   }
 end
 
