@@ -26,6 +26,7 @@ function M.config()
       "<leader>e",
       "<cmd>NvimTreeToggle<CR>",
       desc = "Explorer",
+      icon = "",
     },
   }
 

@@ -5,7 +5,7 @@ local M = {
 function M.config()
   local wk = require "which-key"
   wk.setup {
-    preset = "helix",
+    preset = "classic",
     plugins = {
       marks = true,
       registers = true,
@@ -50,21 +50,24 @@ function M.config()
       "<leader>w",
       "<cmd>w!<CR>",
       desc = "Save",
+      icon = " ",
     },
     {
       "<leader>c",
-      "<cmd>BufDel<CR>",
+      "<cmd>:lua require('bufdelete').bufdelete(0, false)<CR>",
       desc = "Close Buffer",
     },
     {
       "<leader>h",
       "<cmd>nohlsearch<CR>",
       desc = "NOHL",
+      icon = " ",
     },
     {
       "<leader>v",
       "<cmd>vsplit<CR>",
       desc = "Split",
+      icon = " ",
     },
     {
       "<leader>b",
@@ -90,7 +93,14 @@ function M.config()
     {
       "<leader>l",
       group = "LSP",
+      icon = " ",
     },
+    {
+      "<leader>l",
+      group = "LSP",
+      mode = "v",
+    },
+
     {
       "<leader>p",
       group = "Plugins",

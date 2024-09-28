@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "lir",
     "DressingSelect",
     "tsplayground",
+    "query",
     "",
   },
   callback = function()
@@ -47,6 +48,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    local dirname = vim.fn.getcwd():match "([^/]+)$"
+    vim.opt.titlestring = dirname
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
     vim.highlight.on_yank { higroup = "Visual", timeout = 40 }
@@ -72,14 +81,5 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
       -- luasnip.unlink_current()
       vim.cmd [[silent! lua require("luasnip").unlink_current()]]
     end
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = { "*.go" },
-  callback = function()
-    vim.opt_local.tabstop = 4 -- Insert 4 spaces for a tab
-    vim.opt.shiftwidth = 4 -- Change the number of space characters inserted for indentation
-    vim.opt.expandtab = false -- Converts tabs to spaces
   end,
 })

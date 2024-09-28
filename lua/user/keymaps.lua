@@ -30,8 +30,8 @@ vim.cmd [[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<C
 -- vim.cmd [[:amenu 10.120 mousemenu.-sep- *]]
 
 -- more good
-keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
-keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
+-- keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
+-- keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
 -- tailwind bearable to work with
 keymap({ "n", "x" }, "j", "gj", opts)

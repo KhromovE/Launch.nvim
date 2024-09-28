@@ -6,8 +6,7 @@ local M = {
 function M.config()
   local lint = require "lint"
   lint.linters_by_ft = {
-    markdown = { "markdownlint" },
-    -- typescript = { "eslint_d" },
+    -- markdown = { "markdownlint" },
     lua = { "luacheck" },
     golang = { "golangci-lint" },
   }
