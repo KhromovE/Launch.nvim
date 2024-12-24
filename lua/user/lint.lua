@@ -9,6 +9,7 @@ function M.config()
     -- markdown = { "markdownlint" },
     lua = { "luacheck" },
     golang = { "golangci-lint" },
+    -- css = { "stylelint" },
   }
 
   -- To allow other plugins to add linters to require('lint').linters_by_ft,

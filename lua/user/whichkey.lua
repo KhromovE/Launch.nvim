@@ -5,6 +5,7 @@ local M = {
 function M.config()
   local wk = require "which-key"
   wk.setup {
+    triggers = { "<leader>" },
     preset = "classic",
     plugins = {
       marks = true,
@@ -45,6 +46,7 @@ function M.config()
       "<leader>q",
       "<cmd>confirm q<CR>",
       desc = "Quit",
+      icon = "󰩈",
     },
     {
       "<leader>w",
@@ -56,6 +58,7 @@ function M.config()
       "<leader>c",
       "<cmd>:lua require('bufdelete').bufdelete(0, false)<CR>",
       desc = "Close Buffer",
+      icon = "󰱝",
     },
     {
       "<leader>h",
@@ -72,23 +75,28 @@ function M.config()
     {
       "<leader>b",
       group = "Buffers",
+      icon = "󰪸",
     },
     {
       "<leader>d",
       group = "Debug",
+      icon = "",
     },
     {
       "<leader>f",
       group = "Find",
+      icon = "",
     },
     {
       "<leader>g",
       group = "Git",
+      icon = "",
     },
     {
       "<leader>g",
       group = "Git",
       mode = "v",
+      icon = "",
     },
     {
       "<leader>l",
@@ -104,14 +112,17 @@ function M.config()
     {
       "<leader>p",
       group = "Plugins",
+      icon = " ",
+    },
+    {
+      "<leader>T",
+      group = "Treesitter",
+      icon = "",
     },
     {
       "<leader>t",
       group = "Test",
-    },
-    {
-      "<leader>T",
-      name = "Treesitter",
+      icon = "󰙨",
     },
   }
 end

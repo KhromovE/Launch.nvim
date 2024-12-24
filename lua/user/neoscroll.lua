@@ -3,14 +3,6 @@ local M = {
 }
 
 function M.config()
-  vim.cmd [[
-  nnoremap <C-j> <C-D>
-  vnoremap <C-j> <C-D>
-
-  nnoremap <C-k> <C-U>
-  vnoremap <C-k> <C-U>
-]]
-
   local neoscroll = require "neoscroll"
 
   neoscroll.setup {
@@ -33,12 +25,6 @@ function M.config()
       neoscroll.ctrl_u { duration = 250, easing = "sine" }
     end,
     ["<C-d>"] = function()
-      neoscroll.ctrl_d { duration = 250, easing = "sine" }
-    end,
-    ["<C-k>"] = function()
-      neoscroll.ctrl_u { duration = 250, easing = "sine" }
-    end,
-    ["<C-j>"] = function()
       neoscroll.ctrl_d { duration = 250, easing = "sine" }
     end,
     -- Use the "circular" easing function

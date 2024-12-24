@@ -5,12 +5,12 @@ keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Better window navigation
-keymap("n", "<m-h>", "<C-w>h", opts)
-keymap("n", "<m-j>", "<C-w>j", opts)
-keymap("n", "<m-k>", "<C-w>k", opts)
-keymap("n", "<m-l>", "<C-w>l", opts)
-keymap("n", "<m-tab>", "<c-6>", opts)
+-- -- Better window navigation
+-- keymap("n", "<m-h>", "<C-w>h", opts)
+-- keymap("n", "<m-j>", "<C-w>j", opts)
+-- keymap("n", "<m-k>", "<C-w>k", opts)
+-- keymap("n", "<m-l>", "<C-w>l", opts)
+-- keymap("n", "<m-tab>", "<c-6>", opts)
 
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
@@ -18,6 +18,10 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
+keymap("n", "<m-k>", ":resize +2<CR>")
+keymap("n", "<m-j>", ":resize -2<CR>")
+keymap("n", "<m-h>", ":vertical resize -2<CR>")
+keymap("n", "<m-l>", ":vertical resize +2<CR>")
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

@@ -3,6 +3,15 @@ local M = {
   lazy = true,
 }
 
-function M.config() end
+function M.config()
+  require("lspconfig").jsonls.setup {
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  }
+end
 
 return M

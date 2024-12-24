@@ -102,14 +102,18 @@ function M.config()
     "cssls",
     "html",
     "ts_ls",
-    "eslint",
+    "astro",
     "pyright",
     "bashls",
     "jsonls",
     "yamlls",
+    "marksman",
+    "tailwindcss",
+    "rust_analyzer",
+    "eslint",
+    "stylelint_lsp",
     "gopls",
     "golangci_lint_ls",
-    "gdscript",
   }
 
   local default_diagnostic_config = {
@@ -162,7 +166,7 @@ function M.config()
     end
 
     if server == "pyright" then
-      require "user.extras.python"
+      require "user.python"
     end
 
     lspconfig[server].setup(opts)

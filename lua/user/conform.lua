@@ -32,6 +32,7 @@ function M.config()
       typescript = { "prettier" },
       json = { "prettier" },
       lua = { "stylua" },
+      go = { "gofumpt", "goimports" },
     },
   }
 end

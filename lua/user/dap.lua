@@ -7,11 +7,35 @@ local M = {
       "mfussenegger/nvim-dap-python",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-telescope/telescope-dap.nvim",
-      "jay-babu/mason-nvim-dap.nvim",
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = "mason.nvim",
+        cmd = { "DapInstall", "DapUninstall" },
+        opts = {
+          automatic_installation = true,
+          handlers = {},
+          ensure_installed = {
+            "delve",
+          },
+        },
+      },
+      "nvim-neotest/nvim-nio",
+      {
+        "leoluz/nvim-dap-go",
+        config = function()
+          require("dap-go").setup()
+        end,
+      },
     },
   },
 }
-function M.config()
+function M.config(_, opts)
+  local dap = require "dap"
+  local dapui = require "dapui"
+
+  dap.set_log_level "DEBUG"
+  dapui.setup(opts)
+
   local wk = require "which-key"
 
   wk.add {

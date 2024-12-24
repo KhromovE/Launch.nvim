@@ -1,8 +1,9 @@
 local M = {
-  "williamboman/mason-lspconfig.nvim",
+  "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     "nvim-lua/plenary.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
 }
 
@@ -20,10 +21,13 @@ M.execs = {
   "tailwindcss",
   "rust_analyzer",
   "eslint",
+  "stylelint_lsp",
+  "gopls",
 }
 
 function M.config()
   local wk = require "which-key"
+
   wk.add {
     { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info" },
   }
@@ -35,6 +39,17 @@ function M.config()
   }
   require("mason-lspconfig").setup {
     ensure_installed = M.execs,
+  }
+  require("mason-tool-installer").setup {
+    ensure_installed = {
+      "prettier",
+      "eslint",
+      "stylelint_lsp",
+      "gopls",
+      "delve",
+      "gofumpt",
+      "goimports",
+    },
   }
 end
 

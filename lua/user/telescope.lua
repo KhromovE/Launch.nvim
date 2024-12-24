@@ -1,6 +1,8 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true } },
+  dependencies = {
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true },
+  },
   lazy = true,
   cmd = "Telescope",
 }
@@ -10,9 +12,10 @@ function M.config()
 
   wk.add {
     {
-      "<leader>bb",
-      "<cmd>Telescope buffers previewer=false<cr>",
-      desc = "Find",
+      "<leader>b",
+      "<cmd>Telescope buffers<cr>",
+      desc = "Buffers",
+      icon = "󰪸",
     },
     {
       "<leader>fb",
@@ -53,11 +56,6 @@ function M.config()
       "<leader>fH",
       "<cmd>Telescope highlights<cr>",
       desc = "Highlights",
-    },
-    {
-      "<leader>fi",
-      "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>",
-      desc = "Media",
     },
     {
       "<leader>fl",
@@ -132,6 +130,7 @@ function M.config()
       vim.api.nvim_buf_call(ctx.buf, function()
         vim.fn.matchadd("TelescopeParent", "\t\t.*$")
         vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+        vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = "#E5E9F0", bold = true })
       end)
     end,
   })
@@ -151,11 +150,16 @@ function M.config()
   require("telescope").setup {
     defaults = {
       prompt_prefix = icons.ui.Telescope .. " ",
-      selection_caret = icons.ui.Forward .. "  ",
+      selection_caret = icons.ui.Forward .. " ",
       entry_prefix = "   ",
       initial_mode = "insert",
       selection_strategy = "reset",
-      path_display = { "smart" },
+      path_display = {
+        "truncate",
+        filename_first = {
+          reverse_directories = false,
+        },
+      },
       color_devicons = true,
       set_env = { ["COLORTERM"] = "truecolor" },
       sorting_strategy = nil,
@@ -206,14 +210,16 @@ function M.config()
 
       buffers = {
         theme = "dropdown",
-        previewer = false,
-        initial_mode = "normal",
+        previewer = true,
+        sort_lastused = true,
+        sort_mru = true,
+        initial_mode = "insert",
         mappings = {
           i = {
             ["<C-d>"] = actions.delete_buffer,
           },
           n = {
-            ["dd"] = actions.delete_buffer,
+            ["d"] = actions.delete_buffer,
           },
         },
       },

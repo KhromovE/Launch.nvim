@@ -12,6 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
+  rocks = {
+    hererocks = true,
+  },
   spec = LAZY_PLUGIN_SPEC,
   install = {
     colorscheme = { "default" },

@@ -1,11 +1,8 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
-  -- event = { "BufReadPost", "BufNewFile" },
-  -- build = ":TSUpdate",
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      -- event = "VeryLazy",
     },
   },
 }
@@ -13,11 +10,21 @@ local M = {
 function M.config()
   local wk = require "which-key"
   wk.add {
-    { "<leader>Ti", "<cmd>TSConfigInfo<CR>", desc = "Info", hidden = true },
+    { "<leader>Ti", "<cmd>TSConfigInfo<CR>", desc = "Info" },
   }
 
   require("nvim-treesitter.configs").setup {
-    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" }, -- put the language you want in this array
+    ensure_installed = {
+      "lua",
+      "markdown",
+      "markdown_inline",
+      "bash",
+      "python",
+      "javascript",
+      "typescript",
+      "rust",
+      "go",
+    },
     ignore_install = { "" },
     sync_install = false,
     highlight = {
