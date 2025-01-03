@@ -7,7 +7,7 @@ function M.config()
 
   neoscroll.setup {
     -- All these keys will be mapped to their corresponding default scrolling animation
-    mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
+    mappings = { "<C-u>", "<C-d>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
     hide_cursor = true, -- Hide cursor while scrolling
     stop_eof = true, -- Stop at <EOF> when scrolling downwards
     respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
@@ -26,13 +26,6 @@ function M.config()
     end,
     ["<C-d>"] = function()
       neoscroll.ctrl_d { duration = 250, easing = "sine" }
-    end,
-    -- Use the "circular" easing function
-    ["<C-b>"] = function()
-      neoscroll.ctrl_b { duration = 450, easing = "circular" }
-    end,
-    ["<C-f>"] = function()
-      neoscroll.ctrl_f { duration = 450, easing = "circular" }
     end,
     -- When no value is passed the `easing` option supplied in `setup()` is used
     ["<C-y>"] = function()

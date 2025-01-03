@@ -5,7 +5,9 @@ local M = {
 function M.config()
   local wk = require "which-key"
   wk.setup {
-    triggers = { "<leader>" },
+    triggers = {
+      { "<leader>", mode = { "n", "v" } },
+    },
     preset = "classic",
     plugins = {
       marks = true,
