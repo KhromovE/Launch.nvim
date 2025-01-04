@@ -60,22 +60,15 @@ function M.config()
   end
 
   local ftMap = {
-    -- typescriptreact = { "lsp", "treesitter" },
-    -- python = { "indent" },
-    -- git = "",
+    "treesitter",
+    "indent",
   }
 
   require("ufo").setup {
     fold_virt_text_handler = handler,
     close_fold_kinds = {},
-    -- close_fold_kinds = { "imports", "comment" },
     provider_selector = function(bufnr, filetype, buftype)
-      -- if you prefer treesitter provider rather than lsp,
-      -- return ftMap[filetype] or {'treesitter', 'indent'}
       return ftMap[filetype]
-      -- return { "treesitter", "indent" }
-
-      -- refer to ./doc/example.lua for detail
     end,
 
     preview = {

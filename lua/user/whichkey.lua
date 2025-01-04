@@ -75,11 +75,6 @@ function M.config()
       icon = " ",
     },
     {
-      "<leader>b",
-      group = "Buffers",
-      icon = "󰪸",
-    },
-    {
       "<leader>d",
       group = "Debug",
       icon = "",
